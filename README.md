@@ -31,10 +31,10 @@ There are two inputs:
 
 1. The blank quantitative assessment template. We will make copies of this 
 file. A recent version of this file was named 
-`PMA-TCB-Quant-Assessment-Template-srt_EN.xlsx`. There is also a French version
-of this file. This file can be found in the TCB Dropbox folders. 
+`PMA-TCB-Assessment-Template-v2-EN.xlsx`. There is also a French version
+of this file: `PMA-TCB-Assessment-Template-v3_FR.xlsx`. These files can be found in the TCB Dropbox folders. 
 2. A master personnel list. There is a template found here in this repository
-at [files/TCB-Personnel-Masterlist.xlsx](files/TCB-Personnel-Masterlist.xlsx).
+at [files/TCB-Personnel-Masterlist.xlsx](files/TCB-Personnel-Masterlist.xlsx?raw=true).
 All we are specifying in the proper columns "Country", "Whom to assess" 
 (the learner), and "Assessor". The "Assessor" is the person who is filling out 
 the quantitative assessment. It can be the learner or someone else, such as a 
