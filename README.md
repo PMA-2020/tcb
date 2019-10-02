@@ -81,3 +81,85 @@ python3 -m tcb.combine results_directory/
 
 and the combined dataset is saved at `tcb_results.xlsx` in the current 
 directory.
+
+
+---
+
+# Logiciel PMA TCB
+
+Ce logiciel permet de créer des fichiers d'analyse quantitative.
+Il y a deux principaux cas d'utilisation. Le premier consiste à créer des fichiers quantitatifs 
+avec le système de nommage approprié. Le deuxième est de les combiner en un 
+fichier Excel unique pour une analyse plus approfondie.
+
+# Installation
+
+Tout d'abord, Python 3 est requis sur votre machine.
+
+Vous devez d'abord accéder à votre exécutable "python3". Accéder à son répertoire 
+si nécessaire (par exemple sous Windows).
+
+
+```bash
+python3 -m pip install https://github.com/PMA-2020/tcb/zipball/master
+```
+
+# Mises à jpur
+
+Mettre à jour le logiciel avec
+```bash
+python3 -m pip install https://github.com/PMA-2020/tcb/zipball/master --upgrade
+```
+
+# Cas d’usage  1 : création de fichiers quantitatifs vierges
+
+Il y a deux entrées :
+
+1. Gabarit d'évaluation quantitative vide. Nous en ferons des copies 
+du fichier. Une version récente de ce fichier a été nommée 
+`PMA-TCB-Assessment-Template-v2-EN.xlsx`. Il existe aussi une version française
+de ce fichier:
+ `PMA-TCB-Assessment-Template-v3_FR.xlsx`. Ces fichiers se trouvent dans les dossiers Dropbox TCB.
+2. Une liste maitresse du personnel. Un modèle se trouve ici dans ce référentiel
+[files/TCB-Personnel-Masterlist.xlsx](files/TCB-Personnel-Masterlist.xlsx?raw=true).
+Tout ce que nous spécifions dans les colonnes appropriées "Country", "Whom to assess" 
+(l'apprenant), et "Assessor". Le "Assessor" est la personne qui remplit
+
+ 
+
+l'évaluation quantitative. Il peut s'agir de l'apprenant ou de quelqu'un d'autre, comme un  superviseur.  Cette partie du logiciel ne fait que créer des copies du gabarit et les nomme  correctement. Le schéma de dénomination est:
+```
+[NAME-OF-LEARNER]_[COUNTRY]_[NAME-OF-ASSESSOR].xlsx
+```
+
+et un exemple du schéma de dénomination est "Joe-Flacco_USA_Jim-Harbaugh.xlsx".Ici l’apprenant est Joe Flacco et l'évaluateur est Jim Harbaugh. Leur pays est: les USA.  Exemple d'usage:
+
+```bash
+python3 -m tcb.create -t PMA-TCB-Quant-Assessment-Template-srt_EN.xlsx -p TCB-Personnel-Masterlist.xlsx -o output_directory/
+```
+
+et les fichiers créés sont placés dans  le dossier `output_directory/`
+ 
+
+# Cas d’usage 2: combinaison des résultats
+
+L'entrée dans cette partie du logiciel est un dossier contenant tous les éléments remplis 
+des évaluations quantitatives. Le schéma de dénomination du fichier est important.Il 
+doit correspondre à
+
+```
+[NAME-OF-LEARNER]_[COUNTRY]_[NAME-OF-ASSESSOR].xlsx
+```
+
+car ces champs deviennent des entrées de données dans la serie de données. 
+
+Chaque évaluation quantitative devient une ligne dans la serie de données combinées.
+
+Exemple d’usage:
+
+
+```bash
+python3 -m tcb.combine results_directory/
+```
+
+et la serie de données combinées est enregistrée à `tcb_results.xlsx dans le répertoire en cours.
